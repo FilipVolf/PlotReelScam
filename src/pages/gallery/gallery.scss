@@ -1,0 +1,235 @@
+page-gallery {
+
+  $subtitle-background-color: #ffffff;
+  .footer-gallery-main {
+    width: 100%;
+    background: $subtitle-background-color;
+  }
+
+  .footer-main-gallery {
+    width: 100%;
+    text-align: center;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .photo-div {
+    height: 100%;
+    width: 35%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+  }
+  .gallery-div {
+    height: 100%;
+    width: 35%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+  }
+  .scroll-content {
+    overflow-y: hidden;
+  }
+
+  ion-content, .content-md {
+    background-color: transparent;
+  }
+  ion-content, .content-ios {
+    background-color: transparent;
+  }
+
+  .back-content {
+    display: block;
+    // background-color: transparent !important;
+  }
+  .no-padding {
+    padding: 0;
+  }
+  .div-foo-back {
+    width: 100%;
+    height: 100%;
+  }
+  .div-main-back {
+    width: 100%;
+    height: 100%;
+    z-index: 900;
+  }
+  .grid-main-back {
+    width: 100%;
+    height: 100%;
+    z-index: 900;
+    padding: 0;
+  }
+  .row-main-back {
+    height: 33.33%;
+    z-index: 900;
+  }
+  .row-main-back-one {
+    height: 100%;
+    z-index: 900;
+    opacity: 0.6;
+  }
+  .div-main-cell {
+    position: absolute;
+    border: 2px solid rgba(102, 117, 138, 1);
+    border-right-width: 4px;
+    border-left-width: 4px;
+    z-index: 900;
+  }
+
+  .div-main-cell-1 {
+    position: absolute;
+    border: 2px solid rgba(102, 117, 138, 1);
+    border-right-width: 4px;
+    border-left-width: 4px;
+    z-index: 900;
+  }
+  .div-main-margin {
+    padding: 0;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+
+  .overlay {
+    top: 20px;
+    position: absolute;
+    z-index: 100;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(100, 115, 136, 1);
+    border: solid 2px rgba(100, 115, 136, 1);
+    box-sizing: content-box;
+    pointer-events: none;
+  }
+
+  .div-number-land {
+    float: right;
+    height: 30px;
+    width: 30px;
+    line-height: 30px;
+    text-align: center;
+    margin: 0;
+    background: rgba(102, 117, 138, 0.6);
+    transform: rotate(90.0deg);
+    .spanS {
+      display: inline-block;
+      vertical-align: middle;
+      line-height: normal;
+    }
+  }
+
+  .div-number-port {
+    float: right;
+    height: 30px;
+    width: 30px;
+    line-height: 30px;
+    text-align: center;
+    margin: 0;
+    background: rgba(102, 117, 138, 0.6);
+    .spanS {
+      display: inline-block;
+      vertical-align: middle;
+      line-height: normal;
+    }
+  }
+
+  .div-number-land-right {
+    float: right;
+    height: 30px;
+    width: 30px;
+    line-height: 30px;
+    text-align: center;
+    margin: 0;
+    background: rgba(102, 117, 138, 0.6);
+    transform: rotate(-90.0deg);
+    .spanS {
+      display: inline-block;
+      vertical-align: middle;
+      line-height: normal;
+    }
+  }
+
+  //#container {
+  //  position: absolute;
+  //  min-width: 100%;
+  //  min-height: 100%;
+  //  background-clip: border-box;
+  //  background-repeat: no-repeat;
+  //  z-index: 1;
+  //
+  //}
+.contora{
+
+}
+  .cont {
+    height: 100%;
+    background-size: cover;
+    background-clip: border-box;
+    background-repeat: no-repeat;
+    z-index: 1;
+  }
+  img.preview {
+    position: absolute;
+    min-width: 100%;
+    min-height: 100%;
+  }
+
+  ion-fab-list[side=right] {
+    left: 0;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    margin: 0 44px;
+  }
+
+  .fab-text {
+    position: absolute;
+    float: left;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+  }
+}
+
+.gallery-background {
+  background-color: grey;
+}
+
+.gallery-background-white {
+  background-color: white;
+}
+
+.gallery-fab {
+  opacity: 0.6;
+  border: 5px solid lightgrey !important;
+  background: black;
+}
+
+.wtf {
+  position: absolute;
+  bottom: 20px;
+}
+
+.gallery-fab-mini-mini {
+  background: #b73744;
+  opacity: 0.6;
+}
+
+.gallery-fab-icon {
+  color: grey;
+}
+
+.gallery-fab-icon-land {
+  color: grey;
+  transform: rotate(90.0deg);
+}
+
+.gallery-fab-icon-land-right {
+  color: grey;
+  transform: rotate(-90.0deg);
+}
+
+

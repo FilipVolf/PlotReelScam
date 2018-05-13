@@ -1,0 +1,127 @@
+<!-- <ion-header>
+    <ion-toolbar color="primary">
+        <ion-buttons start (click)="onBackClick()">
+            <button ion-button>
+        <ion-icon ios="ios-arrow-back-outline" md="md-arrow-back" ></ion-icon>
+        <p text-uppercase="true" margin-left="1">back</p>
+            </button>
+        </ion-buttons>
+        <ion-title><b>EDIT SCENE</b></ion-title>
+        <ion-buttons end (click)="cropImage()">
+            <button ion-button>
+        <p text-uppercase="true" margin-right="1">done</p>
+        <ion-icon ios="ios-arrow-forward-outline" md="md-arrow-forward" ></ion-icon>
+            </button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="head">
+    <div class="divdiv" (panmove)="onPanMove($event)" (pinch)="onPinch($event)" (touchend)="onTouchEnd($event);" [style.width]='borders.width + "px"'
+        [style.height]='borders.height + "px"' *ngIf="isPortrait">
+        <div class="div-number">
+            <span class="spanS" style="color: white"><b>{{item.num}}</b></span>
+        </div>
+
+        <img id="image" class="picture" src="{{srcImage}}" [style.top]='image.offsetTop + "px"' [style.left]='image.offsetLeft + "px"'
+            [style.width]='image.width + "px"'>
+    </div>
+
+    <div class="divdiv" (panmove)="onPanMove($event)" (pinch)="onPinch($event)" (touchend)="onTouchEnd($event);" [style.width]='borders.width + "px"'
+        [style.height]='borders.height + "px"' *ngIf="!isPortrait">
+        <div class="div-number">
+            <span class="spanS" style="color: white"><b>{{item.num}}</b></span>
+
+        </div>
+
+        <img id="image" class="picture" src="{{srcImage}}" [style.top]='image.offsetTop + "px"' [style.left]='image.offsetLeft + "px"'
+            [style.height]='image.height + "px"'>
+    </div>
+  </div>
+
+
+  <div class="desc">
+        <ion-label text-uppercase="true" style="color: black"><font size="2"><b>Description:</b></font></ion-label>
+        <textarea placeholder="Provide a brief description of the story item here." id="desc-textarea" [(ngModel)]="description"
+        style="padding: 1px 16px 16px 16px; border: none; width: 100%; height: 300px; color: black; background-color: lightgray;"></textarea>
+  </div>
+
+      <ion-list>
+      <ion-item text-wrap class="content-background-story">
+        <ion-label text-uppercase="true" style="color: black"><font size="2"><b>Description:</b></font></ion-label>
+        <ion-textarea class="inputPl" placeholder="Provide a brief description of the storyboard here." disable rows="5"
+                      (input)="onDescriptionInput($event)" style="z-index: 100;">
+        </ion-textarea>
+      </ion-item>
+
+    </ion-list>
+     <div class="grey-back" style="height: 500px; background-color: lightgray;">
+    </div> 
+</ion-content>-->
+<ion-header>
+    <ion-toolbar color="primary">
+        <ion-buttons start (click)="onBackClick()">
+            <button ion-button>
+        <ion-icon ios="ios-arrow-back-outline" md="md-arrow-back" ></ion-icon>
+        <p text-uppercase="true" margin-left="1">back</p>
+            </button>
+        </ion-buttons>
+        <ion-title><b>EDIT SCENE</b></ion-title>
+        <ion-buttons end (click)="cropImage()">
+            <button ion-button>
+        <p text-uppercase="true" margin-right="1">done</p>
+        <ion-icon ios="ios-arrow-forward-outline" md="md-arrow-forward" ></ion-icon>
+            </button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <div class="head">
+        <div class="divdiv" [style.width]='borders.width + "px"' [style.height]='borders.height + "px"' *ngIf="isPortrait">
+            <div class="div-number">
+                <span class="spanS" style="color: white"><b>{{item.num}}</b></span>
+            </div>
+            <div class="div-range" [style.top]='topElRange + "px"'>
+                <ion-range class="range" min="10" [(ngModel)]="zoomCoef" max="100" step="1" (ionChange)="onRangeChange($event)">
+                    <ion-icon range-left name="remove" style="color: #b73744"></ion-icon>
+                    <ion-icon range-right name="add" style="color: #b73744"></ion-icon>
+                </ion-range>
+            </div>
+
+            <ion-scroll #ionScroll id="scroll-image" direction="xy" scrollX="true" scrollY="true" style="width:100%;height:100%;text-align:center;">
+                <img id="image" class="picture" src="{{srcImage}}" [style.height]='image.height + "px"' [style.left]='image.offsetLeft + "px"' [style.top]='image.offsetTop + "px"' *ngIf="!mode">
+                <img id="image" class="picture" src="{{srcImage}}" [style.width]='image.width + "px"' [style.left]='image.offsetLeft + "px"' [style.top]='image.offsetTop + "px"' *ngIf="mode">
+            </ion-scroll>
+        </div>
+
+        <div class="divdiv" [style.width]='borders.width + "px"' [style.height]='borders.height + "px"' *ngIf="!isPortrait">
+            <div class="div-number">
+                <span class="spanS" style="color: white"><b>{{item.num}}</b></span>
+            </div>
+            <div class="div-range" [style.top]='topElRange + "px"'>
+                <ion-range class="range" min="10" [(ngModel)]="zoomCoef" max="100" step="1" (ionChange)="onRangeChange($event)">
+                    <ion-icon range-left name="remove" style="color: #b73744"></ion-icon>
+                    <ion-icon range-right name="add" style="color: #b73744"></ion-icon>
+                </ion-range>
+            </div>
+            <ion-scroll #ionScroll scrollX="true" direction="xy" scrollY="true" style="width:100%;height:100%;text-align:center;">
+                <img id="image" class="picture" src="{{srcImage}}" [style.height]='image.height + "px"' *ngIf="!mode">
+                <img id="image" class="picture" src="{{srcImage}}" [style.width]='image.width + "px"' *ngIf="mode">
+            </ion-scroll>
+        </div>
+
+    </div>
+
+
+    <div class="desc">
+        <ion-label text-uppercase="true" style="color: black">
+            <font size="2"><b>Description:</b></font>
+        </ion-label>
+        <textarea placeholder="Provide a brief description of the story item here." id="desc-textarea" [(ngModel)]="description"
+            style="padding: 1px 16px 16px 16px; border: none; width: 100%; height: 300px; color: black; background-color: lightgray;"
+            (keyup.done)="cropImage()"></textarea>
+    </div>
+
+</ion-content>

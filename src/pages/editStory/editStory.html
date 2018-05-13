@@ -1,0 +1,73 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons start (click)="onBackClick()">
+      <button ion-button>
+        <ion-icon ios="ios-arrow-back-outline" md="md-arrow-back"></ion-icon>
+        <p text-uppercase="true" margin-left="1">back</p>
+      </button>
+    </ion-buttons>
+    <ion-title><b>EDIT STORY</b></ion-title>
+    <ion-buttons end (click)="onDoneClick()">
+      <button ion-button>
+        <p text-uppercase="true" margin-right="1">done</p>
+        <ion-icon ios="ios-arrow-forward-outline" md="md-arrow-forward"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="editStoryBackground">
+
+  <!--<ion-list class="editStoryList">-->
+  <!--<ion-item class="itemLabelBack">
+    <ion-icon name="close" style="margin: 10px, 10px, 0, 0; right: 0; top: 0;"></ion-icon>
+    <ion-label text-uppercase="true" style="color: black">Title:</ion-label>
+    <ion-input placeholder="Put the title of the storyboard here." (input)="onTitleInput($event)" [ngModel]="title"></ion-input>
+  </ion-item>
+  <ion-item class="itemLabelBack">
+    <ion-label text-uppercase="true" style="color: black">Description:</ion-label>
+    <ion-textarea placeholder="Provide a brief description of the storyboard here." disable rows="5"
+                  (input)="onDescriptionInput($event)" [ngModel]="description"></ion-textarea>
+  </ion-item>
+</ion-list>-->
+
+  <ion-list>
+    <ion-item class="itemLabelBack">
+      <ion-label text-uppercase="true" style="color: black"><b>Title:</b></ion-label>
+      <ion-input placeholder="Put the title of the storyboard here." ng-model="title" id="title" value
+                 (input)="onTitleInput($event)" [ngModel]="title">
+      </ion-input>
+    </ion-item>
+
+    <ion-item text-wrap class="itemLabelBack">
+      <ion-label text-uppercase="true" style="color: black"><b>Description:</b></ion-label>
+      <ion-textarea placeholder="Provide a brief description of the storyboard here." disable rows="5"
+                    (input)="onDescriptionInput($event)" [ngModel]="description">
+      </ion-textarea>
+    </ion-item>
+  </ion-list>
+
+  <ion-grid class="zeroPadding">
+    <ion-row>
+      <ion-col col-6 *ngFor="let image of images" (click)="openEditScene(image)" class="no-pad">
+        <div class="div-border">
+          <div class="id-button-rrr"><p class="div-number">{{image.number}}</p></div>
+          <img [src]="image.image">
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-fab right bottom margin>
+    <button ion-fab (click)="onFabClick()">
+      <ion-icon name="md-add"></ion-icon>
+    </button>
+  </ion-fab>
+
+  <!--<ion-fab left bottom margin>-->
+  <!--<button ion-fab (click)="exportStory()">-->
+  <!--<ion-icon name="md-add"></ion-icon>-->
+  <!--</button>-->
+  <!--</ion-fab>-->
+
+
+</ion-content>

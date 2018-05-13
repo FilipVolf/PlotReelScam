@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons start>
+      <button (click)="changeSearchVisibility(searchVisibility)" ion-button icon-only color="royal">
+        <ion-icon md="md-search" ios="ios-search"></ion-icon>
+      </button>
+    </ion-buttons>
+    <img class="logo" src="assets/images/app_logo.png">
+
+  </ion-toolbar>
+  <ion-searchbar #sear id="searchBar" [hidden]="searchVisibility" (ionInput)="getStoryFromSearch($event)"></ion-searchbar>
+</ion-header>
+
+<ion-content padding class="library-content-background">
+  
+  <div emty-list-image (click)="onFabClick()" *ngIf="items.length == 0">
+    <img [src]="imageSrc">
+  </div>
+  <ion-list [style.margin-top]='marginTop + "px"'>
+    <ion-item-sliding class="sliding" *ngFor="let item of items">
+      <ion-item no-border no-padding (click)="openEditStory(item, $event)">
+        <ion-grid>
+          <ion-row>
+            <ion-col col-5>
+              <ion-card no-padding no-margin>
+                <div class="id-button" *ngIf="item.imageCount != 1" (click)="openStoryDetail(item, $event)">{{item.imageCount}} Boards</div>
+                <div class="id-button" *ngIf="item.imageCount == 1" (click)="openStoryDetail(item, $event)">{{item.imageCount}} Board</div>
+                <img [src]="item.mainImage == null ? '' : item.mainImage">
+              </ion-card>
+            </ion-col>
+            <ion-col col-7>
+              <p><b>{{item.title}}</b></p>
+              <p style="color: red;">{{item.created | date:' — MMM dd, yyyy' }}</p>
+              <div class="description">{{item.description.trim()}}</div>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-item>
+      <ion-item-options side="right" (ionSwipe)="deleteStory(item)">
+        <button margin ion-button expandable (click)="deleteStory(item)">
+          <ion-icon name="trash"></ion-icon>
+        </button>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+
+  <ion-fab right bottom margin>
+    <button ion-fab color="" (click)="onFabClick()">
+      <ion-icon name="md-add"></ion-icon>
+    </button>
+  </ion-fab>
+</ion-content>

@@ -1,0 +1,35 @@
+// page-testCamera {
+  // div.canvas-container {
+  //   position: absolute;
+  //       width: 100%;
+  //       height: 100%;
+  //       background-size: cover;
+  //       z-index: 100;
+  // }
+// }
+
+ion-grid.gridCont {
+  position: absolute;
+  height: 0 auto;
+  border: solid red;
+  border-width: 5px 5px 5px 5px ;
+  padding: 0;
+  margin: 0;
+  z-index: 1;
+}
+
+ion-row.rowCont {
+  border: solid red;
+  border-width: 0 0 5px 0;
+  z-index: 100;
+}
+
+ion-col.colCont {
+  border: solid red;
+  border-width: 0 5px 0 0;
+  z-index: 100;
+}
+
+// html, body, .ion-app, .ion-content {
+//   background-color: transparent;
+// }

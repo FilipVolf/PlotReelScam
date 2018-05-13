@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons start>
+      <button ion-button icon-only (click)="closeCreateStory()" color="royal">
+        <ion-icon md="md-close" ios="ios-close-outline"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title text-uppercase="true"><b>CREATE STORY</b></ion-title>
+    <ion-buttons end (click)="onNextClick()">
+      <button ion-button>
+        <p text-uppercase="true" margin-right="1"><font size="2"><b>next</b></font></p>
+        <ion-icon ios="ios-arrow-forward-outline" md="md-arrow-forward"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="content-background-story">
+  <ion-list>
+    <ion-item class="content-background-story">
+      <ion-label text-uppercase="true" class="item-text-center">
+        <font size="2">
+          <b>Grid Layout: &nbsp; &nbsp;</b> </font>
+        <button ion-button #button1 color="primary" [clear]="buttonOne" small (click)="buttonClick(butId1)"><font
+          size="4">1</font></button>
+        <button ion-button #button6 color="dark" [clear]="buttonTwo" small (click)="buttonClick(butId2)"><font
+          size="4">6</font></button>
+      </ion-label>
+    </ion-item>
+
+    <ion-item class="content-background-story">
+      <ion-label text-uppercase="true" style="color: black">
+        <font size="2"><b>Title:</b></font>
+      </ion-label>
+      <ion-input class="inputPl" placeholder="Put the title of the storyboard here." ng-model="title" id="title" value (input)="onTitleInput($event)">
+      </ion-input>
+    </ion-item>
+
+    <ion-item text-wrap class="content-background-story">
+      <ion-label text-uppercase="true" style="color: black">
+        <font size="2"><b>Description:</b></font>
+      </ion-label>
+      <ion-textarea class="inputPl" placeholder="Provide a brief description of the storyboard here." disable rows="5" (input)="onDescriptionInput($event)">
+      </ion-textarea>
+    </ion-item>
+
+  </ion-list>
+</ion-content>

@@ -1,0 +1,102 @@
+<ion-header #header id="header">
+  <ion-toolbar color="primary">
+    <ion-buttons start>
+      <button ion-button icon-only (click)="closeGallery()" color="royal">
+        <ion-icon md="md-close" ios="ios-close-outline"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title text-uppercase="true"><b>ADD SCENES</b></ion-title>
+    <ion-buttons end>
+      <button ion-button (click)="cropImage()">
+        <p text-uppercase="true" margin-right="1">done</p>
+        <ion-icon ios="ios-arrow-forward-outline" md="md-arrow-forward"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-footer class="footer-gallery-main" #footer id="footer">
+  <div class="footer-main-gallery">
+    <div class="photo-div" (click)="restartCamera()">
+      <button ion-button color="dark" clear small text-uppercase="true">PHOTO</button>
+    </div>
+    <div class="gallery-div" (click)="openGallery()">
+      <button ion-button color="grey" clear small>LIBRARY</button>
+    </div>
+  </div>
+</ion-footer>
+<!--[ngStyle]="{ 'background-image': 'url(' + containerImage + ')'}"-->
+<ion-content class="back-content" scroll="false">
+
+  <div class="cont" #container id="container"
+  [ngStyle]="{'background-image':'url(' + containerImage + ')'}"
+       >
+    <!--<p style="margin: 0;"><img class="preview" id="previewPicture"></p>-->
+  </div>
+
+  <div #singleRoot class="div-main-back" [hidden]="divVisibility">
+    <div class="div-main-cell-1" [style.width]='singleCell.width + "px"' [style.height]='singleCell.height + "px"'
+         [style.top]='singleCell.top + "px"'
+         [style.left]='singleCell.left + "px"'>
+      <div class="div-number-port" *ngIf="isPortrait">
+        <span class="spanS" style="color: white"><b>1</b></span>
+      </div>
+      <div class="div-number-land" *ngIf="isLandLeft">
+        <span class="spanS" style="color: white"><b>1</b></span>
+      </div>
+      <div class="div-number-land-right" *ngIf="isLandRight">
+        <span class="spanS" style="color: white"><b>1</b></span>
+      </div>
+    </div>
+  </div>
+
+  <!--[style.border-left-width]='1 + "px"'-->
+  <!--[style.border-right-width]='bordRight + "px"'-->
+  <div #root class="div-main-back" [hidden]="!divVisibility" (window:resize)="updateGrid()">
+    <div #groot class="div-main-cell" *ngFor="let cell of cells" [style.width]='cell.width + "px"'
+         [style.height]='cell.height + "px"'
+         [style.top]='cell.top + "px"' [style.left]='cell.left + "px"'
+         [style.border-right-width]='cell.borderRight + "px"'>
+      <div class="div-number-port" *ngIf="isPortrait">
+        <span class="spanS" style="color: white"><b>{{cell.num}}</b></span>
+      </div>
+      <div class="div-number-land" *ngIf="isLandLeft">
+        <span class="spanS" style="color: white"><b>{{cell.num}}</b></span>
+      </div>
+      <div class="div-number-land-right" *ngIf="isLandRight">
+        <span class="spanS" style="color: white"><b>{{cell.num}}</b></span>
+      </div>
+    </div>
+  </div>
+  <ion-fab bottom left style="background: transparent;">
+    <button ion-fab mini class="gallery-fab-mini" style="background: transparent; box-shadow: none !important;
+  border-color: rgba(0,0,0,0) !important; outline: none !important; opacity: 0.8; padding: 0;">
+      <div style="width: 30px; height: 30px; background: #b73744; z-index: 20;">
+        <span class="fab-text"><font size="4" (click)="fabClick(grids)">{{grids}}</font></span>
+        <!--<font size="4">{{grids}}</font>-->
+      </div>
+    </button>
+    <!--<ion-fab-list side="right">
+      <button ion-button [clear]="fab1" small (click)="fabClick(fabId1)" class="gallery-fab-mini"
+              (click)="checkNumbers()"><font size="4"><b>{{fabId1}}</b></font></button>
+      <button ion-button [clear]="fab2" small (click)="fabClick(fabId2)" class="gallery-fab-mini"
+              (click)="checkNumbers()"><font size="4"><b>{{fabId2}}</b></font></button>
+    </ion-fab-list>-->
+  </ion-fab>
+  <ion-fab center bottom *ngIf="isPortrait">
+    <button ion-fab color="light" class="gallery-fab" (click)="takeThePicture()">
+      <ion-icon ios="ios-camera" md="md-camera" class="gallery-fab-icon"></ion-icon>
+    </button>
+  </ion-fab>
+  <ion-fab center bottom *ngIf="isLandLeft">
+    <button ion-fab color="light" class="gallery-fab" (click)="takeThePicture()">
+      <ion-icon ios="ios-camera" md="md-camera" class="gallery-fab-icon-land"></ion-icon>
+    </button>
+  </ion-fab>
+  <ion-fab center bottom *ngIf="isLandRight">
+    <button ion-fab color="light" class="gallery-fab" (click)="takeThePicture()">
+      <ion-icon ios="ios-camera" md="md-camera" class="gallery-fab-icon-land-right"></ion-icon>
+    </button>
+  </ion-fab>
+</ion-content>

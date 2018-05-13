@@ -1,0 +1,67 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons start>
+      <button (click)="changeSearchVisibility(searchVisibility)" ion-button icon-only color="royal">
+        <ion-icon md="md-search" ios="ios-search"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>Library</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only color="royal" (click)="openEditStory()">
+        <ion-icon md="md-photos" ios="ios-photos-outline"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+  <ion-searchbar [hidden]="searchVisibility"></ion-searchbar>
+</ion-header>
+
+<ion-content padding class="library-content-background">
+
+  <div #container class="resize-container">
+    <span class="resize-handle resize-handle-nw" (mousedown)="startResize($event)"></span>
+    <span class="resize-handle resize-handle-ne" (mousedown)="startResize($event)"></span>
+    <img #imagecrop src="https://unsplash.it/1980/1240"
+         class="resize-image" alt="Image" (mousedown)="startMove($event)"/>
+    <span class="resize-handle resize-handle-sw" (mousedown)="startResize($event)"></span>
+    <span class="resize-handle resize-handle-se" (mousedown)="startResize($event)"></span>
+  </div>
+
+  <div class="overlay">
+    <!--<div class="overlay-inner">-->
+    <!--</div>-->
+  </div>
+  <button class="btn-crop js-crop" (click)="cropImage()">Crop</button>
+  <button class="btn-crop js-crop" (click)="openStoryDetail()">Open Story Detail</button>
+  <ion-list>
+    <ion-item-sliding *ngFor="let item of items">
+      <ion-item no-border no-padding>
+        <ion-grid>
+          <ion-row>
+            <ion-col col-5>
+              <ion-card no-padding no-margin>
+                <div class="id-button">24 Boards</div>
+                <img [src]="item.mainImage">
+              </ion-card>
+            </ion-col>
+            <ion-col col-7>
+              <p>{{item.title}}</p>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-item>
+
+      <!--(ionSwipe)="saveItem(item)"-->
+      <ion-item-options side="right">
+        <button margin ion-button expandable (click)="saveItem(item)">
+          <ion-icon name="trash"></ion-icon>
+        </button>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+
+  <ion-fab right bottom margin>
+    <button ion-fab color="" (click)="onFabClick()">
+      <ion-icon name="md-add"></ion-icon>
+    </button>
+  </ion-fab>
+</ion-content>

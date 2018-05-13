@@ -1,0 +1,85 @@
+page-editScene {
+    border: 1px solid black;
+    background-color: white;
+    min-height: 20px;
+
+    .divdiv{
+        background: transparent;
+        width: 100%;
+        height: 500px;
+        border: 5px solid rgba(102, 117, 138, 1);
+        background-size: cover;
+        z-index: 1;
+        overflow: hidden;
+    }
+
+    img.picture {
+        position: relative;
+        margin: 0;
+        z-index: -1;
+        display: flex;
+        max-width:22000px;
+        max-height:17000px;
+    }
+
+    .label {
+        z-index: 1;
+        padding: 16px;
+        margin: 0;
+    }
+
+    .desc {
+        background: lightgray;
+    }
+    .text-input {
+        margin-bottom: 0;
+    }
+
+    .div-number {
+    float: left;
+    height: 30px;
+    width: 30px;
+    line-height: 30px;
+    text-align: center;
+    margin: 0;
+    background: rgba(100, 115, 136, 0.6);
+    position: absolute;
+    .spanS {
+      display: inline-block;
+      vertical-align: middle;
+      line-height: normal;
+    }
+    z-index: 10;
+  }
+
+  .div-range {
+      position: absolute;
+      z-index: 10;
+      width: 100%;
+  }
+
+  .range {
+      margin: 0 16px 0 16px;
+  }
+  .text-input {
+    resize: none;
+    margin: 0;
+}
+
+.inputPl {
+    font-size: 100%;
+  }
+
+  input {
+    z-index: 100;
+  }
+
+  .scroll-zoom-wrapper {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.ng-invalid {
+  border: 1px solid red;
+}

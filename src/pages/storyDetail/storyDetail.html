@@ -1,0 +1,85 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons start (click)="onBackClick()">
+      <button ion-button>
+        <ion-icon ios="ios-arrow-back-outline" md="md-arrow-back"></ion-icon>
+        <p text-uppercase="true" margin-left="1">back</p>
+      </button>
+    </ion-buttons>
+    <ion-title><b>STORY DETAIL</b></ion-title>
+    <ion-buttons tappable end (click)="onDoneClick()">
+      <button ion-button>
+        <p text-uppercase="true" margin-right="1">done</p>
+        <ion-icon ios="ios-arrow-forward-outline" md="md-arrow-forward"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+  <div class="subtitle-toolbar">
+    <div class="boards">
+      <div class="boards-diw">
+        <p class="boards-text">{{boards}} Boards</p>
+      </div>
+    </div>
+    <div class="title-dd">
+      <p class="title-text"><b><font size="3">{{story.title}}</font></b></p>
+    </div>
+    <div class="date">
+      <p class="date-text"><b>{{story.created | date:' — MMM dd, yyyy' }}</b></p>
+    </div>
+  </div>
+</ion-header>
+
+<ion-footer class="footer-main">
+  <div class="footer-div">
+    <div class="buttons-cont">
+      <div class="col-div-1" (click)="switchConvertingMode(1)" >
+        <div class="pdf-div" [style.opacity]="opacityPDF">
+          <p class="pdf-text"><b>PDF</b></p>
+        </div>
+      </div>
+      <div class="col-div-2" (click)="switchConvertingMode(2)">
+        <div class="jpg-div" [style.opacity]="opacityJPG">
+          <p class="jpg-text"><b>JPG</b></p>
+        </div>
+      </div>
+    </div>
+    <div class="export-cont">
+      <div class="export-div" (click)=export()>
+        <p class="export-text"><b>EXPORT</b></p>
+      </div>
+    </div>
+  </div>
+</ion-footer>
+<ion-content padding class="content-back-grey">
+  <ion-list class="story-list" reorder="true" (ionItemReorder)="reorderItems($event)">
+    <ion-item-sliding *ngFor="let item of items" class="item-sli">
+      <ion-item no-border no-padding class="item-card" (click)="viewItem(item)" (ionSwipe)="deleteItem(item)">
+        <ion-grid>
+          <ion-row>
+            <ion-col col-5>
+              <ion-card no-padding no-margin class="block">
+                <div class="id-button">{{item.num}}</div>
+                <img class="scene_image" src="{{item.image}}">
+              </ion-card>
+            </ion-col>
+            <ion-col col-7>
+              <div *ngIf="item.description !== ''" class="description">{{item.description.trim()}}</div>
+              <div *ngIf="item.description === ''" class="description" style="color: #bbc3ca"
+              >Provide a description of your scene here...</div></ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-item>
+      <ion-item-options side="right">
+        <!--(ionSwipe)="deleteItem(item)"-->
+        <button margin ion-button expandable (click)="deleteItem(item)" style="width: 50px;">
+          <ion-icon name="trash"></ion-icon>
+        </button>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+  <ion-fab right bottom margin>
+    <button ion-fab color="" (click)="onFabClick()">
+      <ion-icon name="md-add"></ion-icon>
+    </button>
+  </ion-fab>
+</ion-content>

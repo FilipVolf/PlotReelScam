@@ -1,0 +1,129 @@
+page-export {
+
+  img.logo {
+    width: 45%;
+    display: block;
+    margin: 0 auto;
+  }
+  $subtitle-background-color: #ffffff;
+  //Header
+  .subtitle-toolbar-export {
+    height: $toolbar-ios-height;
+    width: 100%;
+    background: $subtitle-background-color;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    padding: 0 10px 0 10px;
+    align-items: center;
+  }
+  .boards-export {
+    justify-content: center;
+    min-width: 10%;
+    max-width: 30%;
+    height: 50%;
+    background-color: #b73744;
+    opacity: 0.8;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  .buttons-back {
+    position: absolute;
+    left:0;
+  }
+  .buttons-lib {
+    position: absolute;
+    right: 5px;
+  }
+  .boards-diw-export {
+    margin: 5px;
+  }
+  .title-dd-export {
+    margin-left: 10px;
+    min-width: 10%;
+    max-width: 50%;
+  }
+  .boards-text-export {
+    color: white;
+    font-size: 1.3rem;
+  }
+  .title-text-export {
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin: 0;
+    color: #000;
+    font-size: 2rem;
+  }
+  .date-export {
+    margin-left: 5px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    min-width: 20%;
+    max-width: 30%;
+  }
+  .date-text-export {
+    margin: 0;
+    color: #b73744;
+    font-style: italic;
+    font-size: 80%;
+    opacity: 0.8;
+  }
+  //Header
+  .export-content {
+    background: lightgrey;
+  }
+  .export-footer-back {
+    height: 35px;
+    background-color: white;
+  }
+  .divCont {
+  }
+  .buttonTrash {
+    padding: 0;
+    margin: 0;
+    float: right;
+  }
+  .buttonTrashIcon {
+    color: cornflowerblue;
+    padding-top: 5px;
+    float: right;
+    font-size: 30px;
+    margin-right: 10px;
+  }
+  .buttonShareIcon {
+    color: cornflowerblue;
+    padding-top: 5px;
+    float: left;
+    font-size: 30px;
+    margin-left: 10px;
+  }
+  .divShare {
+    height: 100%;
+    width: 20%;
+    float: left;
+  }
+  .divTrash {
+    height: 100%;
+    width: 20%;
+    float: right;
+  }
+  .documentPlaceHolder {
+    width: 40%;
+    margin: 25% 30% 0% 30%;
+  }
+  .textPlaceHolder {
+    text-align: center;
+    margin: 2% 20%;
+    color: grey;
+    font-weight: 600;
+  }
+  .imageHolder {
+    position: relative;
+    align-content: center;
+  }
+}

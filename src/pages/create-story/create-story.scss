@@ -1,0 +1,21 @@
+page-create-story {
+  .content-background-story {
+    background-color: lightgrey;
+  }
+  ion-searchbar.searchbar-ios {
+    color: black;
+  }
+  .item-text-center {
+    display: flex;
+    align-items: center;
+  }
+  ion-label {
+    .label-text {
+      color: #000;
+    }
+    color: black;
+  }
+  .inputPl {
+    font-size: 90%;
+  }
+}

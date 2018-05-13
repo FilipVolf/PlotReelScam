@@ -1,0 +1,74 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons class="buttons-back" start (click)="onBackClick()">
+      <button ion-button>
+        <ion-icon ios="ios-arrow-back-outline" md="md-arrow-back"></ion-icon>
+        <p text-uppercase="true" margin-left="1">back</p>
+      </button>
+    </ion-buttons>
+    <!--<ion-title>Export</ion-title>-->
+    <img class="logo" src="../www/assets/images/app_logo.png">
+    <ion-buttons class="buttons-lib" end (click)="onBackClick()">
+      <button ion-button>
+        <ion-icon ios="ios-browsers-outline" md="md-albums"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+  <div class="subtitle-toolbar-export">
+    <div class="boards-export">
+      <div class="boards-diw-export">
+        <p class="boards-text-export">{{storyExportImageCount}} Boards</p>
+      </div>
+    </div>
+    <div class="title-dd-export">
+      <p class="title-text-export"><b><font size="3">{{storyExportTitle}}</font></b></p>
+    </div>
+    <div class="date-export">
+      <p class="date-text-export"><b>{{storyExportCreated | date:' — MMM dd, yyyy' }}</b></p>
+    </div>
+  </div>
+</ion-header>
+
+<ion-content class="export-content">
+
+  <div class="documentPlaceHolder" [hidden]="logoType">
+    <img src="../www/assets/images/pdflogo.svg" class="imageHolder">
+  </div>
+  <div class="documentPlaceHolder" [hidden]="!logoType">
+    <img src="../www/assets/images/jpglogo.svg" class="imageHolder">
+  </div>
+  <div class="textPlaceHolder">
+    <p text-uppercase="true">
+      Your document
+    </p>
+
+    <p text-uppercase="true">
+      has been completed,
+    </p>
+
+    <p text-uppercase="true">
+      and is ready to share!
+    </p>
+    <p text-uppercase="true">
+      {{path}}
+    </p>
+  </div>
+  <!--<ion-fab left bottom margin>-->
+    <!--<button ion-fab (click)="delete()">-->
+      <!--<ion-icon name="md-add"></ion-icon>-->
+    <!--</button>-->
+  <!--</ion-fab>-->
+</ion-content>
+<ion-footer class="export-footer-back">
+  <div class="divCont">
+    <!--<button ion-button class="buttonTrash" clear>-->
+    <div class="divShare" (click)="presentActionSheet()">
+      <ion-icon ios="ios-share-outline" md="md-share" class="buttonShareIcon"></ion-icon>
+    </div>
+
+    <div class="divTrash" (click)="presentDeleteAlert()">
+      <ion-icon ios="ios-trash-outline" md="md-trash" class="buttonTrashIcon"></ion-icon>
+    </div>
+    <!--</button>-->
+  </div>
+</ion-footer>

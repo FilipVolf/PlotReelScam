@@ -1,0 +1,27 @@
+<ion-header>
+    <ion-toolbar color="primary">
+        <ion-buttons start (click)="onBackClick()">
+            <button ion-button>
+        <ion-icon ios="ios-arrow-back-outline" md="md-arrow-back" ></ion-icon>
+        <p text-uppercase="true" margin-left="1">back</p>
+            </button>
+        </ion-buttons>
+        <ion-title><b>STORY DETAIL</b></ion-title>
+        <ion-buttons end (click)="onDoneClick(item)">
+            <button ion-button>
+        <p text-uppercase="true" margin-right="1">done</p>
+        <ion-icon ios="ios-arrow-forward-outline" md="md-arrow-forward" ></ion-icon>
+            </button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content padding class="content-back-grey">
+    <div no-padding no-margin class="block">
+        <img class="picture" src="{{item.image}}">
+    </div>
+    <ion-label text-uppercase="true">Description:</ion-label>
+      <ion-textarea placeholder="Provide a brief description of the storyboard here." rows="5" >
+        {{item.description}}
+      </ion-textarea>
+</ion-content>

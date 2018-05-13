@@ -1,0 +1,75 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>CameraPreview</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="takePicture()">
+        <ion-icon name="camera"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+
+  <!--<ion-grid class="gridCont" #cameraPreviewContainer>
+      <ion-row class="rowCont">
+        <ion-col class="colCont">
+          1 of 2
+        </ion-col>
+        <ion-col>
+          2 of 2
+        </ion-col>
+      </ion-row>
+      <ion-row class="rowCont">
+        <ion-col class="colCont">
+          1 of 2
+        </ion-col>
+        <ion-col>
+          2 of 2
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col class="colCont">
+          1 of 2
+        </ion-col>
+        <ion-col>
+          2 of 2
+        </ion-col>
+      </ion-row>
+    </ion-grid>-->
+
+  <!--<div class="canvas-container">-->
+
+    <button (click)="click()">Click</button>
+
+
+    <canvas id="canvas" style='border: 1px solid; width: 800px; height: 600px;' #canvas>
+      
+    </canvas>
+
+    <div #secondImage>
+      <img crossOrigin="Anonymous" src="{{anImage}}">
+    </div>
+<!--      
+      <script>
+        var canvas = document.getElementById('canvas');
+
+        var context = canvas.getContext('2d');
+        var imageObj = new Image();
+
+        imageObj.src = './Splash.png';
+
+        imageObj.onload = function () {
+          context.drawImage(imageObj, 20, 20, imageObj.naturalWidth / 2, imageObj.naturalHeight / 2, 10, 10,
+            198, 108);
+
+            console.log("hui tobi");
+        }
+      </script>-->
+    
+
+  <!--</div>-->
+</ion-content>
